@@ -22,10 +22,8 @@ public class UserDao {
      * @return : updated user object
      */
     public User addRoles(String userEmail, List<Role> roles){
-        User user = dataStore.find(User.class).filter("userEmail", userEmail).get();
-        user.getRole().addAll(roles);
-        dataStore.save(user);
-        return user;
+        return  dataStore.findAndModify(dataStore.find(User.class).filter("userEmail", userEmail),
+            dataStore.createUpdateOperations(User.class).addAll("role", roles, false));
     }
 
     /**
@@ -35,10 +33,8 @@ public class UserDao {
      * @return
      */
     public User removeRoles(String userEmail, List<Role> roles) {
-        User user = dataStore.find(User.class).filter("userEmail", userEmail).get();
-        user.getRole().removeAll(roles);
-        dataStore.save(user);
-        return user;
+        return  dataStore.findAndModify(dataStore.find(User.class).filter("userEmail", userEmail),
+            dataStore.createUpdateOperations(User.class).removeAll("role", roles));
     }
 
     /**

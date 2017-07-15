@@ -12,21 +12,11 @@
     <artifactId>customauth-model</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>mongo-java-driver</artifactId>
-            <version>${mongo.version}</version>
-        </dependency>
+
         <dependency>
             <groupId>com.meltmedia.dropwizard</groupId>
             <artifactId>dropwizard-mongo</artifactId>
             <version>${dropwizard.mongo.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.mongodb</groupId>
-                    <artifactId>mongo-java-driver</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.mongodb.morphia</groupId>
