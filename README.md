@@ -14,3 +14,4 @@ Assumptions:
 4. Currently add a role permission is given to a Hypothetical Role "MANAGER" and remove role to "MANAGER" and "TEAM_LEAD"
 5. It assumes that every role will have a clearly definined permissions related to actions that a particular Role can perform of resources.
 6. For different access like Read, Write, Delete we can allow particular role to perform action at resource level itself.
+7. Currently system gets user from DB for every hit, we can maintain a cache to avoid so many db read writes. 
